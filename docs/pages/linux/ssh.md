@@ -1,6 +1,4 @@
----
-outline: deep
----
+# ssh
 
 ## 创建密钥
 
@@ -38,11 +36,11 @@ ssh -i ~/.ssh/i4x_ed25519.pub root@192.168.xxx.xxx
 
 实现使用自定义私钥从 github 或 gitlab 上 clone 项目
 
-```sh
+```ssh-config
 Host *
     ServerAliveInterval 60
     ServerAliveCountMax 3
-    
+
 Host githubifourx
     User git
     Hostname github.com

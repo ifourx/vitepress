@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "Hi👋, Flygar here.2222"
+  name: "Hi👋, Flygar here."
   # text: 'Someone who is always a flash in the pan.'
   tagline: ✅ Make it work ✨ Make it right 🚀 Make it fast
   image:

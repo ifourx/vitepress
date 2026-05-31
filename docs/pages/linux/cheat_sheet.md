@@ -1,6 +1,4 @@
----
-outline: deep
----
+# Cheat sheet
 
 ## How To
 

@@ -8,7 +8,7 @@
   overflow-wrap: break-word;
 }
 
-/* 代码字体 */
+/* 字体 */
 @font-face {
   font-family: "JetBrainsMono-wght";
   src: url("/fonts/JetBrainsMono-wght.woff2") format("woff2");
@@ -21,12 +21,15 @@
   font-display: swap;
 }
 
-:root {
-  /* --vp-c-brand-1: #64ffd8;
-  --vp-c-brand-2: #ca841b; */
+html {
+  /* 只要可能出现滚动条，就提前把空间预留出来 */
+  scrollbar-gutter: stable;
+}
 
+:root {
   /* 普通文本字体 */
   /* --vp-font-family-base: "JetBrainsMono-wght"; */
+
   /* 代码字体 */
   --vp-font-family-mono: "JetBrainsMonoNLNerdFontPropo-Regular";
 }

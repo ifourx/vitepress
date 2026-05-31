@@ -58,7 +58,7 @@ ssh -i ${fox_ed25519} -p ${PORT} ${USERNAME}@${IP_address}
 
 或者 `vim /etc/ssh/sshd_config.d/50-cloud-init.conf`
 
-```sh
+```ini
 # 禁止密码验证登录。
 # 如果启用(yes)的话,RSA认证登录就没有意义了，需要取消注释修改为 no
 PasswordAuthentication no

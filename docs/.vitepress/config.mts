@@ -4,11 +4,13 @@ import { DefaultTheme, defineConfig } from "vitepress";
 export default defineConfig({
   title: "Flygar's Blog",
   description: "A VitePress Site",
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     search: {
       provider: "local",
     },
+    outline: "deep",
     nav: nav(),
 
     sidebar: {
@@ -67,7 +69,7 @@ function sidebarLinux(): DefaultTheme.SidebarItem[] | undefined {
         { text: "VPS 安全指北", link: "/pages/linux/vps_reload" },
         { text: "H-UI 面板", link: "/pages/linux/hui" },
         { text: "Git", link: "/pages/linux/git" },
-        { text: "How To", link: "/pages/linux/how_to" },
+        { text: "Cheat Sheet", link: "/pages/linux/cheat_sheet" },
         { text: "ssh", link: "/pages/linux/ssh" },
         { text: "WSL", link: "/pages/linux/wsl" },
       ],
