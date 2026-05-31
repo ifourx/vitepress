@@ -1,0 +1,32 @@
+/* .vitepress/theme/custom.css */
+
+/* 代码块自动换行 */
+.vp-doc div[class*="language-"] pre,
+.vp-doc div[class*="language-"] pre code {
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* 代码字体 */
+@font-face {
+  font-family: "JetBrainsMono-wght";
+  src: url("/fonts/JetBrainsMono-wght.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMonoNLNerdFontPropo-Regular";
+  src: url("/fonts/JetBrainsMonoNLNerdFontPropo-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  /* --vp-c-brand-1: #64ffd8;
+  --vp-c-brand-2: #ca841b; */
+
+  /* 普通文本字体 */
+  /* --vp-font-family-base: "JetBrainsMono-wght"; */
+  /* 代码字体 */
+  --vp-font-family-mono: "JetBrainsMonoNLNerdFontPropo-Regular";
+}
