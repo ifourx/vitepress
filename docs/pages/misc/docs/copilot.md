@@ -1,7 +1,8 @@
 # Copilot on Github
 
-## Automatic review
+## Automatic code review
 
+Set up Copilot to automatically review pull requests for you, a repository, or an organization.
 [automatic code review](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/configure-automatic-review#configuring-automatic-code-review-for-a-single-repository)
 
 ## Copilot CLI

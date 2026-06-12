@@ -1,4 +1,10 @@
-# Customize your environment
+---
+layout: doc
+---
+
+# Copilot CLI
+
+## Customize your environment
 
 **Supported locations (in order of discovery):**
 
@@ -13,11 +19,11 @@
 A community-created collection of custom agents, instructions, skills, hooks, workflows, and plugins to supercharge your GitHub Copilot experience.
 [Awesome GitHub Copilot](https://github.com/github/awesome-copilot#whats-in-this-repo)
 
-# configure allowed tools
+### configure allowed tools
 
 To reset previously approved tools, use:`/reset-allowed-tools`
 
-# Use your own model provider
+### Use your own model provider
 
 Run `copilot help providers` for full setup instructions.
 
@@ -31,24 +37,6 @@ Use with caution, as it grants the CLI full access and automation capabilities.
 > ```
 > copilot --allow-all --enable-all-github-mcp-tools
 > ```
-
-## subagents
-
-```
-/review
-/task
-/fleet
-```
-
-/resume
-
-/plan
-
-/skills
-
-/diff
-/remote
-/mcp
 
 ## plan mode
 
@@ -198,6 +186,11 @@ For more information, see GitHub Copilot [hooks reference](https://docs.github.c
 
 - [LSP server](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
 
+reference: 读, 当条件触发时会将额外内容读取到context中
+scripts: skill目录中如果使用到了scripts,当agent调用skill时,只会触发执行(需要在prompt中把代码的执行方式说清楚),并不会读取scripts的内容作为context,节省了token(哪怕你scripts中有数万行代码也没关系)
+
+skill和mcp的区别: MCP connects claude to data; Skills teach Claude what to do with that data. skills能干大部分MCP的活, 但安全性和稳定性远不如MCP, skill适合轻量化的scripts, 大部分情况下是结合起来使用
+
 ### MCP
 
 ### Agents
@@ -250,9 +243,11 @@ Github Copilot [CLI plugin reference](https://docs.github.com/en/copilot/referen
 
 ## Copilot CLI reference
 
-Find commands and keyboard shortcuts to help you use Copilot CLI effectively.
+### [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
 
-### [Command-line commands](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
+> Find commands and keyboard shortcuts to help you use Copilot CLI effectively.
+
+`/session`
 
 ## Agent Package Manager
 

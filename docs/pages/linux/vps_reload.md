@@ -6,7 +6,11 @@ vps 安全指北,以重装的 ubuntu 为例
 
 ```sh
 # root用户执行
-apt update && apt upgrade && apt autoremove
+sudo apt update && sudo apt upgrade && sudo apt autoremove -y
+
+# locales cat /etc/locale.gen
+sudo locale-gen en_US.UTF-8
+sudo locale -a
 
 # 变更ssh端口 vim /etc/ssh/sshd_config
 # 或者 /etc/ssh/sshd_config.d/50-cloud-init.conf
@@ -187,11 +191,14 @@ wget -qO- yabs.sh | bash
 curl -sL https://yabs.sh | bash
 ```
 
-### 使用 `vim` 时显示行号
+### vim设置
 
-```sh
-# vim ~/.vimrc
-set nu
+`vim ~/.vimrc`
+
+```vim
+set nu " 显示行号
+set hlsearch " 开启高亮搜索
+set incsearch " 边输入边增量匹配
 ```
 
 ### `who` 或 `w` 查看当前登陆的用户

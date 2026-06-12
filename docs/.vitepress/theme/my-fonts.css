@@ -32,4 +32,7 @@ html {
 
   /* 代码字体 */
   --vp-font-family-mono: "JetBrainsMonoNLNerdFontPropo-Regular";
+
+  /* 控制整个页面布局（内容+右侧目录导航）的最大宽度 */
+  /* --vp-layout-max-width: 2440px;  */
 }

@@ -36,8 +36,8 @@ tmux kill-server
 `~/.tmux.conf`
 
 ```ini
-# xterm-256color
-set -g default-terminal "xterm-256color"
+# tmux-256color
+set -g default-terminal "tmux-256color"
 
 # window 编号从 1 开始
 set -g base-index 1
@@ -55,6 +55,10 @@ bind c new-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 bind '"' split-window -v -c "#{pane_current_path}"
 ```
+
+使用如下命令测试颜色
+
+`for i in {0..255} ; do printf '\x1b[38;5;%dm%d ' $i $i ; done; echo`
 
 ## 常用快捷键
 

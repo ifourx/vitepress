@@ -2,7 +2,11 @@
 
 ## installation
 
-[Basic Installation](https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#basic-installation)
+```sh
+sudo apt install -y zsh
+```
+
+see more: [Basic Installation](https://github.com/ohmyzsh/ohmyzsh?tab=readme-ov-file#basic-installation)
 
 ## 插件{#plugins}
 
@@ -25,6 +29,13 @@ ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```sh
 git clone https://github.com/paulirish/git-open.git \
 ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/git-open
+```
+
+插件: [fzf](https://github.com/junegunn/fzf)
+
+```sh
+# Debian 9+/Ubuntu 19.10+
+sudo apt install -y fzf
 ```
 
 ## config
@@ -102,7 +113,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-open macos history zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git git-open macos history zsh-syntax-highlighting zsh-autosuggestions fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,7 +122,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

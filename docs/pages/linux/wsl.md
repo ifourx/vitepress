@@ -46,6 +46,7 @@ wsl --list --verbose
 # set default Distribution
 wsl --set-default <Distribution Name>
 # Run a specific Linux distribution with a specific user
+# wsl -d ubuntu -u root
 wsl --distribution <Distribution Name> --user <User Name>
 
 # uninstall a Linux distribution

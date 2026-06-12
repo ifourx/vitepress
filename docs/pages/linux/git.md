@@ -4,6 +4,15 @@ outline: deep
 
 # Git
 
+## TODO
+
+### 1. 使用版本控制,而不是删除项目再重新拉取
+
+2. 如果在某个commit中提交了隐私信息, 比如明文的密码, 该怎么办?
+   答: 使用 git rebase. 那git revert是干嘛用的
+
+3. 冲突合并(修改了同个文件中的同一个内容)
+
 ## config
 
 ```sh
@@ -21,13 +30,11 @@ git config --global color.ui auto
 git config --global core.editor vim
 ```
 
-###
-
 ```sh
 # 测试与github通信否成功
 ssh -T git@github.com
 # 测试别名
-ssh -T github
+ssh -T vps_ifourx
 ```
 
 ## branch
@@ -40,7 +47,7 @@ git branch
 git switch "<branch-name>"
 
 # 创建本地分支并切换
-# 等价于 git branch <branch-name> && git switch <name>
+# 等价于 git branch <branch-name> && git switch <branch-name>
 git switch -c "<branch-name>" [<origin>/<dev>]
 
 # 重命名分支
@@ -118,18 +125,58 @@ git push origin --delete <tagname>
 | `build`       | 📦 构建相关（如 webpack、npm）  | `build: 修改打包配置`          |
 | `revert`      | ⏪ 回滚之前的提交               | `revert: 回滚 user 模块修改`   |
 
-## push
+see more: [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+## remote
+
+关联本地仓库与github远程仓库
+
+> [!TIP]
+> 可以修改 `<git@github.com>` 为你本地的 `~/.ssh/config` 中的别名配置, 如: `<githubifourx>`
 
 ```sh
-# 关联本地仓库与github远程仓库
-# 可选: 修改 <git@github.com> 为你本地的 .ssh/config 的配置,如: <githubifourx>
+# git remote add <name> <url>: add a remote
 git remote add origin <git@github.com>:你的用户名/仓库名.git
 
-# 将本地分支提交上传到 GitHub
-# 首次与远程分支关联：git push -u origin feature  # 推送到远程feature并关联（本地分支名与远程分支名相同，可以省略`:<远程分支名>`）
-# 远程分支不存在时会自动创建
-# git push -u origin feature:feature，只需执行一次，后续直接使用 git push 就行，再次执行命令可以重新关联到新分支名
+# 查看remote的地址
+git remote -v
+```
+
+查看更新后的配置 `cat .git/config`
+
+## push
+
+将本地分支提交上传到 GitHub, 远程分支不存在时会自动创建
+
+```sh
+# 将本地分支推送到远程分支
+# -u : --set-upstream 设置上游分支, 将当前本地分支和远程分支建立绑定关系(跟踪)
+# (本地分支名与远程分支名相同，可以省略 `:<远程分支名>`)
 git push -u <远程主机名> <本地分支名>:[远程分支名]
-git push <远程主机名> <本地分支名>:[远程分支名]
-git push origin devlop:devlop
+
+# 执行过 -u 关联绑定后, 后续可以直接使用 git push 来提交
+# git push <远程主机名> <本地分支名>:[远程分支名]
+# git push origin dev:dev
+git push
+```
+
+## Tips
+
+### worktree
+
+worktree用来在不同的文件夹里同时打开同一个项目的多个分支, 实时共享同一个底层仓库
+
+worktree可以用来并行开发, 特别适合agent(比如在bugfix分支, main分支, feature分支并行执行3个agent任务)
+
+```sh
+git worktree add <新文件夹路径> <分支名>
+
+# 查看worktree
+git worktree list
+
+# 删除worktree目录
+git worktree remove <新文件夹路径>
+
+# 如果使用 `rm -rf` 删除的worktree目录, 可能会留下无用的"僵尸记录", 使用prune清理
+git worktree prune
 ```
